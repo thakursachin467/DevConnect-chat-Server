@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cors())
 
 //DB config
-const db = require('./config/keys').mongoURI;
+const db = require('./Config/keys').mongoURI;
 //connect to mongodb
 mongoose.connect(db, { useNewUrlParser: true })
   .then(() => console.log('database connected'))
@@ -24,7 +24,7 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use(passport.initialize());
 
 //passport config
-require('./config/passport')(passport);
+require('./Config/passport')(passport);
 
 //API ROUTES 
 app.use('/api/auth', auth);
