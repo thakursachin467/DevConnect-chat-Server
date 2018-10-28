@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const User = require('../../models/User');
-const secret = require('../../config/keys');
+const secret = require('../../Config/keys');
 const axios = require('axios');
 const chatkit = require('../../Config/chatkit');
 
