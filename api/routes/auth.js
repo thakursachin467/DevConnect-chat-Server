@@ -165,8 +165,18 @@ router.get('/github', (req, res) => {
           User.findOne({ githubusername: userinfo.login })
             .then((data) => {
               if (data) {
+                chatkit.createUser({
+                  id: data.githubusername,
+                  name: data.name,
+                  avatarURL: data.avatar
+                })
+                  .then(() => {
+                    console.log('User created successfully');
+                  }).catch((err) => {
+                    console.log(err);
+                  });
                 const payload = {
-                  id: data.id,
+                  id: data.githubusername,
                   name: data.name,
                   avatar: data.avatar
                 }
@@ -193,7 +203,7 @@ router.get('/github', (req, res) => {
                         console.log(err);
                       });
                     const payload = {
-                      id: savedUser.id,
+                      id: savedUser.githubusername,
                       name: savedUser.name,
                       avatar: savedUser.avatar
                     }
