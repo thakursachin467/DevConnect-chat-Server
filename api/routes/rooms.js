@@ -92,8 +92,8 @@ router.post('/add/:id', (req, res) => {
 });
 
 
-router.get('/delete/:id', (req, res) => {
-  const roomId = req.body.roomId;
+router.post('/delete/:id', (req, res) => {
+  const roomId = req.params.id;
   chatkit.deleteRoom({
     id: Number(roomId)
   })
