@@ -112,5 +112,26 @@ router.post('/delete/:id', (req, res) => {
     })
 });
 
+router.post('/removeUser/:id', (req, res) => {
+  const roomId = req.params.id;
+  const userId = req.body.userId
+  chatkit.removeUsersFromRoom({
+    roomId: Number(roomId),
+    userIds: [userId]
+  })
+    .then(() => {
+      res.status(200).send({
+        success: true
+      })
+      console.log('removed')
+    })
+    .catch(err => {
+      res.status(400).send({
+        success: false
+      })
+      console.error(err)
+    })
+});
+
 
 module.exports = router;
