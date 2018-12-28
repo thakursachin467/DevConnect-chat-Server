@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
+    "start": "pm2-runtime  app.js",
     "start-dev": "nodemon app.js"
   },
   "author": "Sachin Thakur",
@@ -21,6 +21,7 @@
     "mongoose": "^5.2.8",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "pm2": "^3.2.4",
     "shortid": "^2.2.14",
     "validator": "^10.8.0"
   },

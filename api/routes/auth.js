@@ -165,6 +165,9 @@ router.get('/github', (req, res) => {
           User.findOne({ githubusername: userinfo.login })
             .then((data) => {
               if (data) {
+                data.githubToken = response.data;
+                data.avatar = userinfo.avatar_url;
+                data.save();
                 chatkit.createUser({
                   id: data.githubusername,
                   name: data.name,
