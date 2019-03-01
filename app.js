@@ -7,7 +7,7 @@ const auth = require('./api/routes/auth');
 const rooms = require('./api/routes/rooms');
 const github = require('./api/routes/github');
 const cors = require('cors');
-
+const Sentry = require('@sentry/node');
 const port = process.env.PORT || 5000;
 
 //body-parser middleware
@@ -27,6 +27,9 @@ app.use(passport.initialize());
 
 //passport config
 require('./Config/passport')(passport);
+
+//sentry for error capturing
+Sentry.init({ dsn: process.env.SENTRY_URI });
 
 //API ROUTES 
 app.use('/api/auth', auth);
