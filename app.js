@@ -33,9 +33,6 @@ require('./Config/passport')(passport);
 const dsn=process.env.SENTRY_URI;
 Sentry.init({ dsn:dsn});
 
-app.get('*',(req,res)=>{
-
-});
 
 //API ROUTES 
 app.use('/api/auth', auth);
