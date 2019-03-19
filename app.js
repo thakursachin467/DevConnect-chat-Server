@@ -29,7 +29,10 @@ app.use(passport.initialize());
 require('./Config/passport')(passport);
 
 //sentry for error capturing
-Sentry.init({ dsn: process.env.SENTRY_URI });
+
+const dsn=process.env.SENTRY_URI;
+Sentry.init({ dsn:dsn});
+
 
 //API ROUTES 
 app.use('/api/auth', auth);
