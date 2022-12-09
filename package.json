@@ -21,7 +21,7 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "event-stream": "^3.3.4",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "lodash": "^4.17.19",
     "mongoose": "^5.2.8",
     "passport": "^0.4.0",
